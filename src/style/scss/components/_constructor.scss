@@ -54,6 +54,10 @@
     border-right: 2px solid $secondary-text;
 }
 
+.ramen__tab--item:last-child{
+    border-right: none;
+}
+
 .ramen__tab--item:hover{
     background-color: $secondary-text;
     color: #fff;

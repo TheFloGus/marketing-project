@@ -530,6 +530,10 @@ body {
   border-right: 2px solid #5da6c6;
 }
 
+.ramen__tab--item:last-child {
+  border-right: none;
+}
+
 .ramen__tab--item:hover {
   background-color: #5da6c6;
   color: #fff;
