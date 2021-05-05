@@ -5,7 +5,7 @@
     height: 85px;
     
     background-color: $primary-color;
-    box-shadow: 0 4px 2px -2px gray;
+    box-shadow: 0 4px 2px -2px #cecece;
 
     .nav{
         display: inline-flex;
@@ -24,6 +24,7 @@
                 text-decoration: none; 
                 font-family: $font-normal;  
                 font-size: large;
+                transition: all 0.2s ease-in;
             }
             .nav__menu--element:hover{
                 color: $secondary-text;
