@@ -1,0 +1,49 @@
+.header{
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 85px;
+    
+    background-color: $primary-color;
+    box-shadow: 0 4px 2px -2px gray;
+
+    .nav{
+        display: inline-flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+
+        .nav__menu{
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 70%;
+
+            .nav__menu--element{
+                color: $primary-text;
+                text-decoration: none; 
+                font-family: $font-normal;  
+                font-size: large;
+            }
+            .nav__menu--element:hover{
+                color: $secondary-text;
+            }
+            .nav__menu--element:active{
+                position: relative;
+                top: 2px;
+            }
+        }
+
+        .logo{
+            width: 110px;
+            height: 66px;
+        }
+    }
+}
+
+
+.cart__img {
+    width: 40px;
+    height: 40px;
+
+}

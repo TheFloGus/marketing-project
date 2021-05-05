@@ -1,0 +1,22 @@
+body {
+    background-color: $secondary-color;
+}
+
+.wrap{
+    max-width: 75%;
+    min-height: 100vh;
+    margin: 0 auto;
+    // padding: 10px 40px;
+    background-color: $primary-color;
+    @include phone {
+        max-width: 100%;
+        // padding: 10px 10px;
+    }
+}
+
+.container {
+    display: flex;
+    margin: 0 auto;
+    width: 90%;
+    height: 100%;
+}
