@@ -25,6 +25,8 @@
 }
 
 .ramen__menu{
+    position: relative;
+    top: 60px;
     width: 30%;
     height: 100px;
     border: 1px solid $secondary-text;
@@ -57,6 +59,11 @@
     color: #fff;
 }
 
+.ramen__tab--item:active{
+    position: relative;
+    top: 2px;
+}
+
 .ramen__lists{
     display: flex;
     margin-top: 30px;
@@ -64,7 +71,44 @@
 
 .ingridient{
     display: none;
-    width: 100%;
-    height: 140px;
+    
+    width: 675px;
+    // max-height: 800px;
     border: 1px solid black;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.ramen__list{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ramen__ingridient{
+    display: flex;
+    width: 250px;
+    height: 45px;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 0 10px #cecece;
+    margin: 10px 25px;
+    padding: 5px;
+}
+
+.active {
+    background-color: $secondary-text;
+    color: #fff;
+}
+
+.add-btn {
+    background-color: $primary-color;
+    border: 1px solid $secondary-text;
+    color: $secondary-text;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out; 
+}
+
+.add-btn:hover{
+    background-color: $secondary-text;
+    color: $primary-color;
 }

@@ -495,6 +495,8 @@ body {
 }
 
 .ramen__menu {
+  position: relative;
+  top: 60px;
   width: 30%;
   height: 100px;
   border: 1px solid #5da6c6;
@@ -533,6 +535,11 @@ body {
   color: #fff;
 }
 
+.ramen__tab--item:active {
+  position: relative;
+  top: 2px;
+}
+
 .ramen__lists {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -542,8 +549,54 @@ body {
 
 .ingridient {
   display: none;
-  width: 100%;
-  height: 140px;
+  width: 675px;
   border: 1px solid black;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.ramen__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.ramen__ingridient {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 250px;
+  height: 45px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-shadow: 0 0 10px #cecece;
+          box-shadow: 0 0 10px #cecece;
+  margin: 10px 25px;
+  padding: 5px;
+}
+
+.active {
+  background-color: #5da6c6;
+  color: #fff;
+}
+
+.add-btn {
+  background-color: white;
+  border: 1px solid #5da6c6;
+  color: #5da6c6;
+  border-radius: 4px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.add-btn:hover {
+  background-color: #5da6c6;
+  color: white;
 }
 /*# sourceMappingURL=main.css.map */
