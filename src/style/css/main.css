@@ -475,6 +475,45 @@ body {
   height: 40px;
 }
 
+@media (max-width: 456px) {
+  .cart__img {
+    display: none;
+  }
+}
+
+.burger {
+  display: none;
+  width: 30px;
+  height: 3px;
+  background-color: #5da6c6;
+}
+
+@media (max-width: 456px) {
+  .burger {
+    display: block;
+  }
+}
+
+.burger::before {
+  content: '';
+  display: block;
+  position: relative;
+  bottom: 10px;
+  width: 30px;
+  height: 3px;
+  background-color: #5da6c6;
+}
+
+.burger::after {
+  content: '';
+  display: block;
+  position: relative;
+  top: 7px;
+  width: 30px;
+  height: 3px;
+  background-color: #5da6c6;
+}
+
 .ramen {
   margin-top: 40px;
   font-family: "Montserrat", sans-serif;
