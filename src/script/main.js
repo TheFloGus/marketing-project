@@ -96,6 +96,17 @@ listOfIng.addEventListener('click', e => {
         updateCounter(context, dish[context.id]);
         setLocal(dish)
         updateMenu(dish)
+    }else if (e.target.classList.contains('sub-btn')){
+
+        let context = e.target.closest('.ingridient');
+        let index = dish[context.id].indexOf(`${e.target.closest('li').querySelector('.ingridient__name').innerHTML}`)
+        if (index > -1) {
+            dish[context.id].splice(index, 1);
+          }
+        console.log(dish);
+        updateCounter(context, dish[context.id]);
+        setLocal(dish)
+        updateMenu(dish)
     }
 })
 
