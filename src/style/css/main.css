@@ -373,13 +373,13 @@ body {
 }
 
 .wrap {
-  max-width: 75%;
+  max-width: 80%;
   min-height: 100vh;
   margin: 0 auto;
   background-color: white;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 900px) {
   .wrap {
     max-width: 100%;
   }
@@ -412,6 +412,7 @@ body {
   background-color: white;
   -webkit-box-shadow: 0 4px 2px -2px #cecece;
           box-shadow: 0 4px 2px -2px #cecece;
+  z-index: 5;
 }
 
 .header .nav {
@@ -458,6 +459,12 @@ body {
   top: 2px;
 }
 
+@media (max-width: 456px) {
+  .header .nav .nav__menu {
+    display: none;
+  }
+}
+
 .header .nav .logo {
   width: 110px;
   height: 66px;
@@ -474,8 +481,41 @@ body {
 }
 
 .ramen__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   font-size: 28px;
   font-weight: 700;
+  width: 35%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+@media (max-width: 1500px) {
+  .ramen__title {
+    width: 100%;
+  }
+}
+
+.ramen__title .reset {
+  background-color: white;
+  border: 1px solid #5da6c6;
+  color: #5da6c6;
+  border-radius: 4px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  font-size: 20px;
+}
+
+.ramen__title .reset:hover {
+  background-color: #5da6c6;
+  color: white;
+}
+
+.ramen__title .reset:active {
+  position: relative;
+  top: 2px;
 }
 
 .ramen__construct {
@@ -487,6 +527,8 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between;
   width: 100%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .ramen__ingridients {
@@ -494,14 +536,11 @@ body {
   height: 100%;
 }
 
-.ramen__menu {
-  display: none;
-  position: relative;
-  top: 60px;
-  width: 30%;
-  height: 100px;
-  border: 1px solid #5da6c6;
-  border-radius: 5px;
+@media (max-width: 1500px) {
+  .ramen__ingridients {
+    min-width: 100%;
+    width: 100%;
+  }
 }
 
 .ramen__tab--list {
@@ -516,6 +555,12 @@ body {
           align-items: center;
   border: 2px solid #5da6c6;
   border-radius: 5px;
+}
+
+@media (max-width: 456px) {
+  .ramen__tab--list {
+    display: none;
+  }
 }
 
 .ramen__tab--item {
@@ -554,10 +599,17 @@ body {
 
 .ingridient {
   display: none;
-  width: 675px;
+  max-width: 675px;
+  width: 100%;
   border: 1px solid black;
   border-radius: 5px;
   padding: 20px;
+}
+
+@media (max-width: 1500px) {
+  .ingridient {
+    max-width: 100%;
+  }
 }
 
 .ramen__list {
@@ -645,10 +697,15 @@ body {
   transition: all 0.2s ease-in-out;
   font-size: 20px;
   margin-top: 20px;
-  position: relative;
-  left: 85%;
+  margin-left: 43%;
   font-family: "Montserrat", sans-serif;
   padding: 5px;
+}
+
+@media (max-width: 456px) {
+  .next__btn {
+    margin-left: 38%;
+  }
 }
 
 .next__btn:hover {
@@ -658,5 +715,78 @@ body {
 
 .next__btn:active {
   top: 2px;
+}
+
+.ramen__menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 10px;
+  margin-top: 60px;
+  min-height: 30vh;
+  height: 400px;
+  width: 400px;
+  border: 1px solid #5da6c6;
+  border-radius: 5px;
+  font-family: "Montserrat", sans-serif;
+}
+
+@media (max-width: 1500px) {
+  .ramen__menu {
+    width: 100%;
+  }
+}
+
+.menu {
+  width: 100%;
+  height: 80%;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  padding: 0 20px 10px 20px;
+  overflow: auto;
+}
+
+.menu__item {
+  margin-top: 13px;
+  line-height: 30px;
+  font-weight: 400;
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.total {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  height: 65px;
+  border: 1px solid #5da6c6;
+}
+
+.total__title {
+  font-weight: 700;
+  font-size: 25px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.menu__title {
+  font-weight: 700;
+  font-size: 25px;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 20px;
 }
 /*# sourceMappingURL=main.css.map */

@@ -6,6 +6,7 @@
     
     background-color: $primary-color;
     box-shadow: 0 4px 2px -2px #cecece;
+    z-index: 5;
 
     .nav{
         display: inline-flex;
@@ -32,6 +33,10 @@
             .nav__menu--element:active{
                 position: relative;
                 top: 2px;
+            }
+
+            @include phone {
+                display: none;
             }
         }
 

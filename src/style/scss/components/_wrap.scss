@@ -3,12 +3,12 @@ body {
 }
 
 .wrap{
-    max-width: 75%;
+    max-width: 80%;
     min-height: 100vh;
     margin: 0 auto;
     // padding: 10px 40px;
     background-color: $primary-color;
-    @include phone {
+    @include tablet {
         max-width: 100%;
         // padding: 10px 10px;
     }

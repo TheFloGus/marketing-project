@@ -32,10 +32,10 @@ function createList(ingridients){
             let ingridient = element.charAt(0).toUpperCase() + element.slice(1);
             list.insertAdjacentHTML("afterbegin", 
             `<li class="ramen__ingridient"> 
-                <p class="ingridient__name">${ingridient}</p>
+                <p class="ingridient__name" id='${ingridient}'>${ingridient}</p>
                 <div class="counter">
                     <button class="sub-btn">-</button>
-                    <p>0</p>
+                    <p class='number'>0</p>
                     <button class="add-btn">+</button>
                 </div>
             </li>`  
@@ -77,3 +77,96 @@ document.querySelector('.ramen__lists').addEventListener('click', e => {
         }
     }
 })
+
+let dish = {
+    broth: [],
+    noodle: [],
+    stock: [],
+    toppings: [],
+    sauces: [],
+};
+
+let listOfIng = document.querySelector('.ramen__lists')
+
+listOfIng.addEventListener('click', e => {
+    if (e.target.classList.contains('add-btn')){
+        let context = e.target.closest('.ingridient');
+        dish[context.id].push(e.target.closest('li').querySelector('.ingridient__name').innerHTML)
+        console.log(dish);
+        updateCounter(context, dish[context.id]);
+        setLocal(dish)
+        updateMenu(dish)
+    }
+})
+
+document.querySelector('.reset').addEventListener('click', () => {
+    dish = {
+        broth: [],
+        noodle: [],
+        stock: [],
+        toppings: [],
+        sauces: [],
+    }; 
+
+    updateCounterAll(dish);
+    setLocal(dish);
+    updateMenu(dish);
+})
+
+function updateCounter(target, array){
+    target.querySelectorAll('.number').forEach(element => element.innerHTML = 0)
+    
+        for(let i of array){
+            let id = '#'+i
+            document.querySelector(id).nextElementSibling.querySelector('.number').innerHTML++
+        }
+}
+
+function updateCounterAll(dish){
+    document.querySelectorAll('.number').forEach(element => element.innerHTML = 0)
+    for(let key in dish){
+        for(let i of dish[key]){
+            let id = '#'+i
+            document.querySelector(id).nextElementSibling.querySelector('.number').innerHTML++
+        }
+    }
+}
+
+function setLocal (obj){
+    sessionStorage.setItem('dish', JSON.stringify(obj))
+}
+
+function getLocal(){
+    if(JSON.parse(sessionStorage.getItem('dish'))){
+        dish = JSON.parse(sessionStorage.getItem('dish'))
+        console.log(dish);
+        updateCounterAll(dish)
+    }
+}
+
+getLocal()
+
+function updateMenu (dish){
+    let menu = document.querySelector('.menu')
+    menu.innerHTML = '';
+    
+    for(let key in dish){
+        let count = {}
+        let item = document.createElement('h2')
+        let id = '#'+key
+        item.innerText = document.querySelector(id).innerHTML
+        item.classList.add('menu__title');
+        menu.appendChild(item)
+
+        dish[key].forEach(function(x) { count[x] = (count[x] || 0)+1; });
+
+        for(let ct in count){
+            item.insertAdjacentHTML("beforeend", `
+                <p class="menu__item">${count[ct]}x ${ct}</p>
+            `)
+        }
+    }
+    
+}
+
+updateMenu(dish)

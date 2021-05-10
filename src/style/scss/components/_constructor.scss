@@ -4,8 +4,33 @@
 }
 
 .ramen__title{
+    display: flex;
     font-size: 28px;
     font-weight: 700;
+    width: 35%;
+    justify-content: space-between;
+    @include screen {
+        width: 100%;
+    }
+
+    .reset{
+        background-color: $primary-color;
+        border: 1px solid $secondary-text;
+        color: $secondary-text;
+        border-radius: 4px;
+        transition: all 0.2s ease-in-out; 
+        font-size: 20px;
+    }
+
+    .reset:hover{
+        background-color: $secondary-text;
+        color: $primary-color;
+    }
+
+    .reset:active{
+        position: relative;
+        top: 2px;
+    }
 }
 
 .ramen__construct{
@@ -13,26 +38,23 @@
     margin-top: 20px;
     justify-content: space-between;
     width: 100%;
+    flex-wrap: wrap;
+    
 }
 
 .ramen__ingridients{
     min-width: 60%;
     height: 100%;
+    @include screen{
+        min-width: 100%;
+        width: 100%;
+    }
     // border: 1px solid $secondary-text;
     // border-radius: 5px;
 
     
 }
 
-.ramen__menu{
-    display: none;
-    position: relative;
-    top: 60px;
-    width: 30%;
-    height: 100px;
-    border: 1px solid $secondary-text;
-    border-radius: 5px;
-}
 
 .ramen__tab--list{
     display: flex;
@@ -40,7 +62,9 @@
     align-items: center;
     border: 2px solid $secondary-text;
     border-radius: 5px;
-    
+    @include phone{
+        display: none;
+    }
 }
 
 .ramen__tab--item{
@@ -78,11 +102,16 @@
     display: none;
     // visibility: hidden;
     
-    width: 675px;
+    max-width: 675px;
+    width: 100%;
     // max-height: 800px;
     border: 1px solid black;
     border-radius: 5px;
     padding: 20px;
+
+    @include screen {
+        max-width: 100%;
+    }
 }
 
 .ramen__list{
@@ -153,10 +182,12 @@
     transition: all 0.2s ease-in-out; 
     font-size: 20px;
     margin-top: 20px;
-    position: relative;
-    left: 85%;
+    margin-left: 43%;
     font-family: $font-normal;
     padding: 5px;
+    @include phone {
+        margin-left: 38%;
+    }
 }
 
 .next__btn:hover{
@@ -166,4 +197,65 @@
 
 .next__btn:active{
     top: 2px;
+}
+
+
+.ramen__menu{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    margin-top: 60px;
+    min-height: 30vh;
+    height: 400px;
+    width: 400px;
+    border: 1px solid $secondary-text;
+    border-radius: 5px;
+    font-family: $font-normal;
+    @include screen {
+        width: 100%;
+    }
+}
+
+
+.menu {
+    width: 100%;
+    height: 80%;
+    font-family: $font-normal;
+    font-size: 20px;
+    padding: 0 20px 10px 20px;
+    overflow: auto;
+    // border: 1px solid $secondary-text;
+
+}
+
+.menu__item {
+    margin-top: 13px;
+    line-height: 30px;
+    font-weight: 400;
+    font-size: 20px;
+    font-family: $font-normal;
+}
+
+.total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 65px;
+    border: 1px solid $secondary-text;
+}
+
+.total__title{
+    font-weight: 700;
+    font-size: 25px;
+    font-family: $font-normal;
+}
+
+.menu__title{
+    font-weight: 700;
+    font-size: 25px;
+    font-family: $font-normal;
+    margin-top: 20px;
 }
