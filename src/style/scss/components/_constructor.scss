@@ -60,7 +60,7 @@
 }
 
 .ramen__tab--item:hover{
-    background-color: $secondary-text;
+    background-color: #8dbfd4;
     color: #fff;
 }
 
@@ -76,6 +76,7 @@
 
 .ingridient{
     display: none;
+    // visibility: hidden;
     
     width: 675px;
     // max-height: 800px;
@@ -100,6 +101,10 @@
     padding: 5px;
 }
 
+.open {
+    display: block;
+}
+
 .active {
     background-color: $secondary-text;
     color: #fff;
@@ -116,4 +121,49 @@
 .add-btn:hover{
     background-color: $secondary-text;
     color: $primary-color;
+}
+
+
+.sub-btn {
+    background-color: $primary-color;
+    border: 1px solid $secondary-text;
+    color: $secondary-text;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out; 
+}
+
+.sub-btn:hover{
+    background-color: $secondary-text;
+    color: $primary-color;
+}
+
+
+.counter{
+    display: inline-flex;
+    width: 30%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.next__btn {
+    background-color: $primary-color;
+    border: 1px solid $secondary-text;
+    color: $secondary-text;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out; 
+    font-size: 20px;
+    margin-top: 20px;
+    position: relative;
+    left: 85%;
+    font-family: $font-normal;
+    padding: 5px;
+}
+
+.next__btn:hover{
+    background-color: $secondary-text;
+    color: $primary-color;
+}
+
+.next__btn:active{
+    top: 2px;
 }
