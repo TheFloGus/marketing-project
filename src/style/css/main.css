@@ -559,7 +559,7 @@ body {
 
 @media (max-width: 456px) {
   .ramen__tab--list {
-    display: none;
+    width: 100%;
   }
 }
 
@@ -574,6 +574,12 @@ body {
   transition: all 0.2s ease-in;
   border: none;
   border-right: 2px solid #5da6c6;
+}
+
+@media (max-width: 456px) {
+  .ramen__tab--item {
+    font-size: 3.5vw;
+  }
 }
 
 .ramen__tab--item:last-child {

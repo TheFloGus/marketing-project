@@ -180,4 +180,7 @@ function updateMenu (dish){
     
 }
 
+let lstBtn = document.querySelectorAll('.next__btn')
+lstBtn[lstBtn.length-1].style.display = 'none'
+
 updateMenu(dish)
