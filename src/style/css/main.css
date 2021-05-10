@@ -487,6 +487,7 @@ body {
   font-size: 28px;
   font-weight: 700;
   width: 35%;
+  margin-bottom: 20px;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -516,6 +517,19 @@ body {
 .ramen__title .reset:active {
   position: relative;
   top: 2px;
+}
+
+.ing__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 28px;
+  font-weight: 700;
+  width: 100%;
+  margin-bottom: 20px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .ramen__construct {
@@ -787,6 +801,15 @@ body {
   font-weight: 700;
   font-size: 25px;
   font-family: "Montserrat", sans-serif;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.total__sum {
+  font-weight: 700;
+  font-size: 25px;
+  font-family: "Montserrat", sans-serif;
+  margin-right: 10px;
 }
 
 .menu__title {
@@ -794,5 +817,33 @@ body {
   font-size: 25px;
   font-family: "Montserrat", sans-serif;
   margin-top: 20px;
+}
+
+.add-cart {
+  background-color: white;
+  border: 1px solid #5da6c6;
+  color: #5da6c6;
+  border-radius: 4px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  font-size: 17px;
+  font-family: "Montserrat", sans-serif;
+  padding: 5px;
+}
+
+.add-cart:hover {
+  background-color: #5da6c6;
+  color: white;
+}
+
+.add-cart:active {
+  position: relative;
+  top: 2px;
+}
+
+.sum {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
 }
 /*# sourceMappingURL=main.css.map */

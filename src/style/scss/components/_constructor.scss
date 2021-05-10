@@ -8,6 +8,7 @@
     font-size: 28px;
     font-weight: 700;
     width: 35%;
+    margin-bottom: 20px;
     justify-content: space-between;
     @include screen {
         width: 100%;
@@ -33,6 +34,14 @@
     }
 }
 
+.ing__title{
+    display: flex;
+    font-size: 28px;
+    font-weight: 700;
+    width: 100%;
+    margin-bottom: 20px;
+    justify-content: space-between;
+}
 .ramen__construct{
     display: inline-flex;
     margin-top: 20px;
@@ -48,11 +57,7 @@
     @include screen{
         min-width: 100%;
         width: 100%;
-    }
-    // border: 1px solid $secondary-text;
-    // border-radius: 5px;
-
-    
+    }  
 }
 
 
@@ -103,11 +108,8 @@
 
 .ingridient{
     display: none;
-    // visibility: hidden;
-    
     max-width: 675px;
     width: 100%;
-    // max-height: 800px;
     border: 1px solid black;
     border-radius: 5px;
     padding: 20px;
@@ -231,8 +233,6 @@
     font-size: 20px;
     padding: 0 20px 10px 20px;
     overflow: auto;
-    // border: 1px solid $secondary-text;
-
 }
 
 .menu__item {
@@ -256,6 +256,15 @@
     font-weight: 700;
     font-size: 25px;
     font-family: $font-normal;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.total__sum {
+    font-weight: 700;
+    font-size: 25px;
+    font-family: $font-normal;
+    margin-right: 10px;
 }
 
 .menu__title{
@@ -263,4 +272,30 @@
     font-size: 25px;
     font-family: $font-normal;
     margin-top: 20px;
+}
+
+.add-cart{
+
+    background-color: $primary-color;
+    border: 1px solid $secondary-text;
+    color: $secondary-text;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out; 
+    font-size: 17px;
+    font-family: $font-normal;
+    padding: 5px;
+}
+
+.add-cart:hover{
+    background-color: $secondary-text;
+    color: $primary-color;
+}
+
+.add-cart:active{
+    position: relative;
+    top: 2px;
+}
+
+.sum{
+    display: inline-flex;
 }

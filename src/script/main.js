@@ -2,7 +2,7 @@ let ingridients = {
     broth: ['мясной', "рыбный", "овощной"],
     noodle: ["рисовая", "пшеничная", "мисо", "фунчоза", "гречневая"],
     stock: ['свинина', "ростбиф", "цыпленок-гриль","бекон", "тунец", "креветка", "окунь", "лосось", "угорь", "кальмар", "осьминог"],
-    toppings: ["баклажаны", "томаты", "перец", "такуан", "соя", "чука", "кукуруза", "вакамэ", "шпинат", "мояши", "дайкон", "брокколи", "яйцо", "бобы", "сыр", "шампиньоны", "шиитаке","древесные грибы", "вешенки", "номэко"],
+    toppings: ["баклажаны", "томаты", "перец", "такуан", "соя", "чука", "кукуруза", "вакамэ", "шпинат", "мояши", "дайкон", "брокколи", "яйцо", "бобы", "сыр", "шампиньоны", "шиитаке", "вешенки", "номэко"],
     sauces: ["Ким Чи", "айсберг", "спайси", "унаги","терияки", "хойсин", "чили", "ореховый", "шрирача"],
 }
 
@@ -14,10 +14,15 @@ function createList(ingridients){
 
     for (let arr in ingridients) {
 
+
         let block = document.createElement('div')
         block.classList.add('ingridient')
         block.id = arr
         lists.appendChild(block)
+
+        let title = document.createElement('h2')
+        title.classList.add('ing__title')
+        block.appendChild(title)
 
         let list = document.createElement('ul')
         list.classList.add('ramen__list')
@@ -27,6 +32,8 @@ function createList(ingridients){
         button.innerHTML = 'Далее'
         button.classList.add('next__btn')
         block.appendChild(button)
+
+        
 
         ingridients[arr].forEach(element => {
             let ingridient = element.charAt(0).toUpperCase() + element.slice(1);
@@ -91,11 +98,31 @@ let listOfIng = document.querySelector('.ramen__lists')
 listOfIng.addEventListener('click', e => {
     if (e.target.classList.contains('add-btn')){
         let context = e.target.closest('.ingridient');
-        dish[context.id].push(e.target.closest('li').querySelector('.ingridient__name').innerHTML)
-        console.log(dish);
-        updateCounter(context, dish[context.id]);
-        setLocal(dish)
-        updateMenu(dish)
+
+        if(dish[context.id].length < document.querySelector(`#${context.id}`).value){
+
+            dish[context.id].push(e.target.closest('li').querySelector('.ingridient__name').innerHTML)
+            updateCounter(context, dish[context.id]);
+            titleUpdate(dish)
+            calcSum(dish)
+            setLocal(dish)
+            updateMenu(dish)
+
+        }else if(context.id === 'toppings'){
+            if (dish[context.id].length <= 10){
+                dish[context.id].push(e.target.closest('li').querySelector('.ingridient__name').innerHTML)
+                updateCounter(context, dish[context.id]);
+                titleUpdate(dish)
+                calcSum(dish)
+                setLocal(dish)
+                updateMenu(dish)
+            } else {
+                alert('Вы добавили максимальное количество')
+            }    
+        
+        }else {
+            alert('Вы не можете добавить больше')
+        }
     }else if (e.target.classList.contains('sub-btn')){
 
         let context = e.target.closest('.ingridient');
@@ -103,8 +130,9 @@ listOfIng.addEventListener('click', e => {
         if (index > -1) {
             dish[context.id].splice(index, 1);
           }
-        console.log(dish);
         updateCounter(context, dish[context.id]);
+        titleUpdate(dish)
+        calcSum(dish)
         setLocal(dish)
         updateMenu(dish)
     }
@@ -120,6 +148,8 @@ document.querySelector('.reset').addEventListener('click', () => {
     }; 
 
     updateCounterAll(dish);
+    titleUpdate(dish)
+    calcSum(dish)
     setLocal(dish);
     updateMenu(dish);
 })
@@ -183,4 +213,41 @@ function updateMenu (dish){
 let lstBtn = document.querySelectorAll('.next__btn')
 lstBtn[lstBtn.length-1].style.display = 'none'
 
+function titleUpdate(dish){
+    let titles = document.querySelectorAll('.ing__title')
+    let values = document.querySelectorAll('.ramen__tab--item')
+    titles.forEach((title, index) => {
+        let sum = values[index].value - dish[values[index].id].length;
+        title.innerHTML = `Выберете ${sum}`
+    })
+
+    document.querySelector('.ramen__lists').querySelector('#toppings').querySelector('.ing__title').innerHTML += " в стоимости, а каждый последующий +1,5р"
+
+    if (dish.toppings.length >= 6){
+        document.querySelector('.ramen__lists').querySelector('#toppings').querySelector('.ing__title').innerHTML = "Каждый 1,5р"
+    }
+    
+}
+
+function calcSum(dish){
+    let sum = 15
+    if (dish.toppings.length > document.querySelector('#toppings').value){
+        sum += (dish.toppings.length - document.querySelector('#toppings').value)*1.5
+    }
+    document.querySelector('.total__sum').innerHTML = `${sum}р`
+}
+
+
+document.querySelector('.add-cart').addEventListener('click', ()=>{
+    for(let key in dish){
+        if(dish[key].length === 0){
+           return alert (`Вы забыли ${document.querySelector(`#${key}`).innerHTML}`)
+        }
+    }
+    alert('Пробная версия на этом заканчивается')
+})
+calcSum(dish)
+titleUpdate(dish)
 updateMenu(dish)
+
+
